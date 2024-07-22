@@ -27,7 +27,7 @@ function Navbar() {
                     < FaCartShopping className='hover:text-green-500'/>
                 </div>
                 </NavLink>
-                <NavLink to="/Footer">
+                <NavLink to="Aboutus">
                     <p className='hover:text-green-500'>About-Us</p>
                 </NavLink>
                
