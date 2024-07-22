@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 function Navbar() {
     return (
         <>
-        <div className="h-20 flex justify-between p-10 bg-black  item centre text-white w-full">
+        <div className="h-5 flex justify-between p-10 bg-black  item centre text-white w-full">
             <div className="flex text-5xl font-bold ml-15  items-center mb-10">
               <NavLink to="/">
               <div className='flex font-bold  '>
@@ -26,6 +26,9 @@ function Navbar() {
                 <div>
                     < FaCartShopping className='hover:text-green-500'/>
                 </div>
+                </NavLink>
+                <NavLink to="/Footer">
+                    <p className='hover:text-green-500'>About-Us</p>
                 </NavLink>
                
             </div>
