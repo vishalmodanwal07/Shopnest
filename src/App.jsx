@@ -1,17 +1,25 @@
-import Header from './components/Header'
-import Navbar from './components/Navbar'
+import Header from './components/Header.jsx'
+import Navbar from './components/Navbar.jsx'
+import Home from './components/pages/Home.jsx'
+import Cart from './components/pages/Cart.jsx'
+import {Routes , Route } from 'react-router-dom'
 import './App.css'
 
 function App() {
-   
+
+  
 
 
   return (
     <>
      <Navbar/>
+     <Routes>
+        <Route path="/" element ={<Home/>}/>
+        <Route path="/Cart" element ={<Cart/>}/>
+     </Routes>
      <Header/>
     </>
   )
 }
 
-export default App
+export default App;

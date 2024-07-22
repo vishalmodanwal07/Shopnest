@@ -1,11 +1,12 @@
-import React from 'react'
+
 
 function Home() {
   return (
     <div>
-      const API_URL ="https://fakestoreapi.com/products"
+      {/* const API_URL =( "https://fakestoreapi.com/products") */}
+      hello home
     </div>
   )
 }
 
-export default Home
+export default Home;
