@@ -2,9 +2,9 @@ import Header from './components/Header.jsx'
 import Navbar from './components/Navbar.jsx'
 import Home from './components/pages/Home.jsx'
 import Cart from './components/pages/Cart.jsx'
-import About from './components/About.jsx'
+import About from './components/pages/About.jsx'
 import {Routes , Route } from 'react-router-dom'
-import './App.css'
+
 
 function App() {
 
