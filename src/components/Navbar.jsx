@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { RxMagicWand } from "react-icons/rx";
 import { FaCartShopping } from "react-icons/fa6";
 import { NavLink } from 'react-router-dom';
@@ -34,14 +34,15 @@ function Navbar() {
                   variant="standard"
                  />
                  <FiSearch className='hover:text-blue-500'/>
-                
                </div>
+
+               
                <NavLink to="/Cart"
                     className={({isActive}) =>`block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-red-600 border-b-2 border-gray-400" : "text-white-300"}  `
                 }>
                 <div className='flex items-center gap-3 justify-center'>
                     < FaCartShopping className='hover:text-red-600'/>
-                     <p className='text-2xl '>Cart</p>
+                     <p className='text-2xl ' style={{fontFamily:'"Raleway", sans-serif'}}>Cart</p>
                 </div>
                </NavLink>
                 
@@ -51,7 +52,7 @@ function Navbar() {
                 }>
                   <div  className='flex items-center gap-3 justify-center '>
                      <RiHome2Fill className='hover:text-red-600'/> 
-                     <p className='text-2xl'>Home</p>   
+                     <p className='text-2xl' style={{fontFamily:'"Raleway", sans-serif'}}>Home</p>   
                   </div>
                </NavLink>
 
@@ -61,7 +62,7 @@ function Navbar() {
                 } >  
                     <div  className='flex items-center gap-3 justify-center '>
                         <FcAbout className='hover:text-red-600'/>
-                        <p className='text-2xl'>About-Us</p>
+                        <p className='text-2xl' style={{fontFamily:'"Raleway", sans-serif'}}>About-Us</p>
                     </div> 
                </NavLink>
 
