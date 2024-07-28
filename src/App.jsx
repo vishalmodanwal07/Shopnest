@@ -1,9 +1,10 @@
 
-import Navbar from './components/Navbar.jsx'
+
 import Home from './components/pages/Home.jsx'
 import Cart from './components/pages/Cart.jsx'
-import About from './components/pages/About.jsx'
-import {Routes , Route } from 'react-router-dom'
+import Layout from './components/Layout.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Favourite from './components/pages/Favourite.jsx'
 
 
 function App() {
@@ -13,13 +14,15 @@ function App() {
 
   return (
     <>
-     <Navbar/>
-     
-     <Routes>
-        <Route path="/" element ={<Home/>}/>
-        <Route path="/Cart" element ={<Cart/>}/>
-        <Route path="/Aboutus"  element ={<About/>}/>
-     </Routes>
+     <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="Cart" element={<Cart />} />
+          <Route path="Favourite" element={<Favourite />} />
+        </Route>
+      </Routes>
+    </Router>
     
      
     
