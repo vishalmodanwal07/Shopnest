@@ -34,9 +34,9 @@ function Products({post}) {
  
 
     return (
-        <div className="flex flex-col  overflow-hidden bg-white items-center border-gray-700 border-collapse border-2 rounded-2xl justify place-content-center hover:scale-110 transition duration-300 ease-in ">
+        <div className="flex flex-col h-55 w-25 overflow-hidden hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] bg-white items-center border-gray-700 border-collapse border-2 rounded-2xl justify place-content-center hover:scale-110 transition duration-300 ease-in ">
             <div className=" flex  justify-between  mx-3 ">
-                <p className="text-gray font-bold p-2 mt-2" style={{fontFamily:'"Raleway", sans-serif'}}>{post.title.split(" ").slice(0,7).join(" ")+"..."}</p>
+                <p className="text-gray-700 font-bold p-2 mt-2" style={{fontFamily:'"Raleway", sans-serif'}}>{post.title.split(" ").slice(0,7).join(" ")+"..."}</p>
                 <div className="flex m-4">
                     {  like.some((p) => p.id == post.id) ?
                     (< IoHeartSharp onClick={ removeFromLike} className=" p-2 m-2 text-red-500 size-10  bg-blue-700 rounded-full "/>):
@@ -44,12 +44,12 @@ function Products({post}) {
 
                     }
                 </div>
-               {/*  <ImHeart className=" p-2 m-4 text-red-500 hover:text-yellow-200 size-10 bg-blue-700 rounded-full "/> */}
+             
             </div>
             <div>
                 <p className="w-40 text-gray-600 font-medium text-[10px] text-left">{post.description.split(" ").slice(0,10).join(" ")+"..."}</p>
             </div>
-            <div className="h-[180px] m-4 pt-3 border-1  w-fit rounded-xl hover:scale-110 transition duration-300 ease-in">
+            <div className="h-[180px]  m-4 pt-3 border-1  w-fit rounded-xl hover:scale-110 transition duration-300 ease-in">
                 <img src={post.image}  className="h-full  w-full "/>
             </div>
             <div className="flex justify-between items-center m-3 p-3 gap-20 w-full">

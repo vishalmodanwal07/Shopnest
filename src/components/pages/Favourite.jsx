@@ -9,10 +9,10 @@ function Favourite() {
   const {like }= useSelector((state)=>state);
   return (
     <div>
-         <div className=" flex flex-col gap-0  text-black">
-         <div className="flex mt-20 text-5xl items-center justify-center">
-         <h1 className="text-3xl  font-bold pl-10 "
-         style={{fontFamily:'"Shadows Into Light", cursive'}}> Your  <span className="text-white ">Favourites</span></h1>
+         <div className=" flex flex-col gap-0   bg-white dark:bg-gray-800 text-black dark:text-white p-4">
+         <div className="flex mt-8 text-5xl items-center justify-center bg-white dark:bg-gray-800 text-black dark:text-white p-4">
+         <h1 className="text-3xl  font-bold pl-10 bg-white dark:bg-gray-800 text-black dark:text-white p-4"
+         style={{fontFamily:'"Shadows Into Light", cursive'}}> <span className="text-green-500 p-2">Your</span>Favourites</h1>
           <IoHeartSharp className='text-red-400  hover:text-red-600 size-8'/>
          </div>
        </div>

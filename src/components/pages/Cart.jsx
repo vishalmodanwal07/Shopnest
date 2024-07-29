@@ -12,12 +12,13 @@ function Cart() {
     setTotalAmount(cart.reduce((acc, curr)=> acc + curr.price,0)) ;
   }, [cart])
   return (
-    <div >
+    <div  >
        <div className=" flex flex-col gap-0  text-black">
-         <div className="flex mt-20 text-5xl items-center justify-center">
-         <h1 className="text-3xl  font-bold pl-10 "
-         style={{fontFamily:'"Shadows Into Light", cursive'}}> Your  <span className="text-white ">Cart</span> is <span className="text-white">here !</span></h1>
-          <AiFillSmile className='text-gray-700 hover:text-black size-8'/>
+       <div className="flex mt-8 text-5xl items-center justify-center bg-white dark:bg-gray-800 text-black dark:text-white p-4">
+          <h1 className="text-3xl  font-bold pl-10 bg-white dark:bg-gray-800 text-black dark:text-white p-4 "
+         style={{fontFamily:'"Shadows Into Light", cursive'}}> <span className="text-green-500">Your</span><span className="bg-white dark:bg-gray-800 text-black dark:text-white p-2 ">Cart</span>is<span className="text-green-500 pl-2">Here !</span></h1>
+         
+          <AiFillSmile className='text-yellow-300 animate-bounce hover:text-black size-8 '/>
          </div>
        </div>
       

@@ -2,16 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  body{
-    background :linear-gradient(to right, rgb(134, 239, 172), rgb(59, 130, 246), rgb(147, 51, 234));
-  }
-}
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
   
 
