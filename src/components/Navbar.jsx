@@ -91,13 +91,13 @@ function Navbar() {
               <p className='text-lg font-bold' style={{ fontFamily: '"Raleway", sans-serif' }}>Favourites</p>
             </div>
           </NavLink>
+          <NavLink to="/Signup">
           <button
-            type="button"
-            className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
-            style={{ fontFamily: '"Raleway", sans-serif' }}
-          >
-            Login
+           type="button"
+           className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+           style={{fontFamily:'"Raleway", sans-serif'}} > Signup
           </button>
+          </NavLink>
          <ThemeToggle/>
         </div>
 
@@ -140,13 +140,13 @@ function Navbar() {
               placeholder="Search For Products....">
             </input>
            
-            <button
-        type="button"
-        className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
-        style={{fontFamily:'"Raleway", sans-serif'}}
-      >
-        Login
-      </button>
+          <NavLink to="/Signup">
+          <button
+           type="button"
+           className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+           style={{fontFamily:'"Raleway", sans-serif'}} > Signup
+          </button>
+          </NavLink>
            
           </div>
         </div>
