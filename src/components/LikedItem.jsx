@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { MdDeleteSweep } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { lremove } from "./redux/Slices/LikedSlice";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {like} 
 
 
 
 
 const LikedItem = ({item}) => {
+  const {like} = useSelector((state) => state);
     const dispatch =useDispatch();
     const removeFromLike = () => {
         dispatch(lremove(item.id));
-        toast("like");
+       
     };
     return (
       <div>
@@ -31,7 +31,7 @@ const LikedItem = ({item}) => {
            </div>
   
           </div>
-          <ToastContainer  />
+         
       </div>
     )
   }

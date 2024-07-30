@@ -30,7 +30,7 @@ function Home() {
   return (
     <div >
          <div className=" flex flex-col h-10 gap-0 mb-20  bg-white dark:bg-gray-800 text-black dark:text-white p-4">
-         <div className="flex mt-8 text-5xl items-center justify-center bg-white dark:bg-gray-800 text-black dark:text-white ">
+         <div className="flex mt-5 text-5xl items-center justify-center bg-white dark:bg-gray-800 text-black dark:text-white ">
           <h1 className="text-3xl  font-bold pl-10 bg-white dark:bg-gray-800 text-black dark:text-white  "
          style={{fontFamily:'"Shadows Into Light", cursive'}}> <span className="text-green-500">Shop</span><span className="bg-white dark:bg-gray-800 text-black dark:text-white p-2 ">Smart</span>Shop-<span className="text-green-500">Nest !</span></h1>
          

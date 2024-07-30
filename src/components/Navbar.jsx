@@ -23,10 +23,22 @@ function Navbar() {
       <div className="h-16 flex fixed justify-between shadow-lg mx-auto items-center w-full z-10 bg-white dark:bg-gray-800 text-black dark:text-white p-4">
         <div className="flex justify-center items-center text-5xl font-semibold">
           <NavLink to="/">
-            <div className='flex font-semibold items-center'>
+          <div className="flex items-center">
+          <div className='flex font-semibold items-center'>
+          <h1 className='text-4xl ml-5 flex hover:text-black shadow-sm  bg-white dark:bg-gray-800 text-black dark:text-white p- m-4' style={{ fontFamily: '"Pacifico" , cursive' }}>SHOPNEST</h1>
+          <RxMagicWand className='text-yellow-400 size-6 animate-bounce' />
+          </div>
+          <div className="sm:block lg:hideen md:hidden xl:hidden p-2 ml-2 font-sm text-sm">
+              <ThemeToggle/>
+              </div>
+          </div>
+            {/* <div className='flex font-semibold items-center'>
               <h1 className='text-4xl ml-5 flex hover:text-black shadow-sm  bg-white dark:bg-gray-800 text-black dark:text-white p- m-4' style={{ fontFamily: '"Pacifico" , cursive' }}>SHOPNEST</h1>
               <RxMagicWand className='text-yellow-400 size-6 animate-bounce' />
-            </div>
+              <div className="sm:block lg:hideen md:hidden xl:hidden p-2 font-sm">
+              <ThemeToggle/>
+              </div>
+            </div> */}
           </NavLink>
         </div>
 
@@ -92,7 +104,7 @@ function Navbar() {
         <div className="md:block  lg:hidden flex items-center  bg-white dark:bg-gray-800 text-black dark:text-white">
           <button onClick={() => setIsOpen(!isOpen)} className="text-gray-800 focus:outline-none">
             {isOpen ? (
-              <svg className="w-6 h-6  bg-white dark:bg-gray-800 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-6 h-6  bg-gray-500 dark:bg-gray-800 text-black dark:text-white rounded-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
@@ -106,17 +118,17 @@ function Navbar() {
 
       {isOpen && (
         <div className="md:hidden fixed w-full top-16 left-0 z-50  bg-white dark:bg-gray-800 text-black dark:text-white ">
-          <div className="flex flex-col items-center p-4  bg-white dark:bg-gray-800 text-black dark:text-white">
-            <NavLink to="/" className="py-2  hover:text-blue-600 w-full text-center  bg-white dark:bg-gray-800 text-black dark:text-white">Home</NavLink>
-            <NavLink to="/Cart" className="py-2 flex items-center justify-center  hover:text-blue-600 w-full text-center  bg-white dark:bg-gray-800 text-black dark:text-white">
-            <div className=" bg-white dark:bg-gray-800 text-black dark:text-white"> Cart </div>
+          <div className="flex flex-col items-center p-4  bg-gray-300 dark:bg-gray-800 text-black dark:text-white">
+            <NavLink to="/" className="py-2  hover:text-blue-600 w-full text-center  bg-gray-300 dark:bg-gray-800 text-black dark:text-white">Home</NavLink>
+            <NavLink to="/Cart" className="py-2 flex items-center justify-center  hover:text-blue-600 w-full text-center  bg-gray-300 dark:bg-gray-800 text-black dark:text-white">
+            <div className=" bg-gray-300 dark:bg-gray-800 text-black dark:text-white"> Cart </div>
             {
                 cart.length > 0 &&
-                <span className="text-white border-50% bg-red-600 text-xs h-3 w-3 flex justify-center items-center m-2 p-2 animate-bounce rounded-full ">{like.length}</span>
+                <span className="text-white border-50% bg-red-600 text-xs h-3 w-3 flex justify-center items-center m-2 p-2 animate-bounce rounded-full ">{cart.length}</span>
               }
             </NavLink>
-            <NavLink to="/Favourite" className="py-2 flex items-center justify-center hover:text-blue-600 w-full text-center  bg-white dark:bg-gray-800 text-black dark:text-white">
-            <div className=" bg-white dark:bg-gray-800 text-black dark:text-white"> Favourite </div>
+            <NavLink to="/Favourite" className="py-2 flex items-center justify-center hover:text-blue-600 w-full text-center   bg-gray-300 dark:bg-gray-800 text-black dark:text-white">
+            <div className="  bg-gray-300 dark:bg-gray-800 text-black dark:text-white"> Favourite </div>
             {
                 like.length > 0 &&
                 <span className="text-white border-50% bg-red-600 text-xs h-3 w-3 flex justify-center items-center m-2 p-2 animate-bounce rounded-full ">{like.length}</span>
@@ -127,7 +139,7 @@ function Navbar() {
               type="text"
               placeholder="Search For Products....">
             </input>
-            <ThemeToggle/>
+           
             <button
         type="button"
         className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"

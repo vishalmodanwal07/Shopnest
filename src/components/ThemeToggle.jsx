@@ -18,8 +18,8 @@ function ThemeToggle() {
     // </button>
   <div>
     <div>
-    <Switch {...label}  onClick={handleToggle} className="p-2 rounded  text-white" />
-    {theme === 'light' ? 'Dark' : 'Light'}
+    <Switch {...label}  onClick={handleToggle} className="p-2 rounded text-white" />
+    {theme === 'light' ? 'dark' : 'Light'}
     </div>
      
   </div>
