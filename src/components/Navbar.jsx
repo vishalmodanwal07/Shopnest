@@ -23,20 +23,22 @@ function Navbar() {
   const { like } = useSelector((state) => state);
   const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
   
-  //authentication-->
-   const auth =getAuth(app);
-   const user =useSelector((state)=>state.auth.user);
-   const dispatch = useDispatch();
-   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
    const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+
+  //authentication-->
+   const auth =getAuth(app);
+   const user =useSelector((state)=>state.auth.user);
+   const dispatch = useDispatch();
+   
+
    const handleSignOut = () => {
     signOut(auth).then(() => {
-      dispatch(clearUser());
-      
+      dispatch(clearUser());   
     }).catch((error) => {
       console.error("Sign-out error", error);
     });
