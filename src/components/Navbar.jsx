@@ -8,6 +8,12 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { ToggleButton } from "@mui/material";
+import { getAuth } from "firebase/auth";
+import { app } from "./firebase";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { clearUser } from "./redux/Slices/authSlice";
+import { signOut } from "firebase/auth";
 
 
 
@@ -17,6 +23,24 @@ function Navbar() {
   const { like } = useSelector((state) => state);
   const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
   
+  //authentication-->
+   const auth =getAuth(app);
+   const user =useSelector((state)=>state.auth.user);
+   const dispatch = useDispatch();
+   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+   const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+   const handleSignOut = () => {
+    signOut(auth).then(() => {
+      dispatch(clearUser());
+      
+    }).catch((error) => {
+      console.error("Sign-out error", error);
+    });
+  };
 
   return (
     <>
@@ -91,13 +115,38 @@ function Navbar() {
               <p className='text-lg font-bold' style={{ fontFamily: '"Raleway", sans-serif' }}>Favourites</p>
             </div>
           </NavLink>
-          <NavLink to="/Signup">
+          {user ? (
+          <div>
+            <span>{ user.email}</span>
+            <button onClick={handleSignOut}>Sign Out</button>
+          </div>
+        ) : (
+          <div className="dropdown">
+            <button onClick={toggleDropdown}>Account</button>
+            {dropdownOpen && (
+              <div className="dropdown-menu">
+                <Link to="/signin" onClick={() => setDropdownOpen(false)}>Sign In</Link>
+                <Link to="/signup" onClick={() => setDropdownOpen(false)}>Sign Up</Link>
+              </div>
+            )}
+          </div>
+        )}
+
+
+
+
+
+
+
+
+
+          {/* <NavLink to="/Signup">
           <button
            type="button"
            className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
-           style={{fontFamily:'"Raleway", sans-serif'}} > Signup
+           style={{fontFamily:'"Raleway", sans-serif'}} > Signup/Login
           </button>
-          </NavLink>
+          </NavLink> */}
          <ThemeToggle/>
         </div>
 
@@ -144,7 +193,7 @@ function Navbar() {
           <button
            type="button"
            className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
-           style={{fontFamily:'"Raleway", sans-serif'}} > Signup
+           style={{fontFamily:'"Raleway", sans-serif'}} > Signup/Login
           </button>
           </NavLink>
            
