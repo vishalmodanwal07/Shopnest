@@ -24,7 +24,7 @@ function Products({post}) {
     };
     const addToLike = () => {
         dispatch(ladd(post));
-        toast("Item added to Liked");
+        toast.success("Item added to Liked");
     };
     const removeFromLike = () => {
         dispatch(lremove(post.id));

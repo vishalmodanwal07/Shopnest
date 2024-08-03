@@ -4,6 +4,8 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { Contact } from 'lucide-react';
+import Contactus from './Contactus';
 
 function Layout() {
     const theme = useSelector((state) => state.theme);
@@ -21,6 +23,7 @@ function Layout() {
         <main className="flex-grow pt-10  bg-white dark:bg-gray-800 text-black dark:text-white p-4">
         <Outlet />
       </main>
+        <Contactus/>
         <Footer />
     </div>
     </div>

@@ -6,15 +6,17 @@ import { NavLink } from 'react-router-dom';
 import {getAuth , signInWithEmailAndPassword} from "firebase/auth";
 import {app} from './firebase'
 
+
 const auth = getAuth(app);
 
 
 function Signin() {
   const [email, setEmail]= useState("");
-  const [password, setPassword] =useState("");
+  const [password, setPassword] = useState("");
   const signinUser =()=>{
-    signInWithEmailAndPassword(auth , email ,password).then((value)=> console.log("Signin success")).catch((err)=>console.log("error"));
-  };
+    signInWithEmailAndPassword(auth , email ,password);
+    }
+  
 
   return (
     <div>
@@ -38,7 +40,7 @@ function Signin() {
             <NavLink to="/Signup">
              
              <span className="font-medium text-black transition-all duration-200 hover:underline  bg-white dark:bg-gray-800 text-black dark:text-blue-700  bg-white dark:bg-gray-800 text-black dark:text-white "style={{ fontFamily: '"Raleway", sans-serif' }}
-             >Sing Up</span>
+             >Sign Up</span>
             
            </NavLink>
 
@@ -64,6 +66,7 @@ function Signin() {
                     type="email"
                     value={email}
                     placeholder="Email"
+                    required
                   ></input>
                 </div>
               </div>
@@ -85,12 +88,14 @@ function Signin() {
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50  bg-white dark:bg-gray-800 text-black dark:text-white "style={{ fontFamily: '"Raleway", sans-serif' }}
                     type="password"
                     placeholder="Password"
+                    required
                   ></input>
                 </div>
               </div>
               <div>
                 <button
                   onClick={signinUser}
+                  
                   type="button"
                   className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80" style={{ fontFamily: '"Raleway", sans-serif' }}
                 >

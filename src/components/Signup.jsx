@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { getAuth , createUserWithEmailAndPassword } from 'firebase/auth';
 import {app} from './firebase'
 import { NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 
@@ -13,7 +14,9 @@ function Signup() {
     const [email ,setEmail]=useState("");
     const [password , setPassword]=useState("");
     const auth = getAuth(app);
-    const createUser =()=>{createUserWithEmailAndPassword(auth , email ,password)};
+    const createUser =()=>{createUserWithEmailAndPassword(auth , email ,password);
+    toast.success("Accont Create Successfully!");
+    };
   return (
     <div>
          <div className=" flex flex-col gap-0  text-black">
@@ -39,7 +42,7 @@ function Signup() {
            <NavLink to="/Signin">
              
             <span className="font-medium text-black transition-all duration-200 hover:underline  bg-white dark:bg-gray-800 text-black dark:text-blue-700"style={{ fontFamily: '"Raleway", sans-serif' }}
-            >Sing In</span>
+            >Sign In</span>
            
           </NavLink>
             {/* <a

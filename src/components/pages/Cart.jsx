@@ -36,7 +36,7 @@ function Cart() {
 
 
 
-            <div className=" bg-gray-100 h-[25%] w-[40%] px-10 pt-10 mr-20 mt-8 border-2 border-collapse rounded-xl hover:shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)] hover:scale-110 transition duration-300 ease-in items-center border-gray-700 ">
+            <div className=" bg-gray-100 h-[25%] w-[40%] px-10 pt-10 ml-20 mt-8 border-2 border-collapse rounded-xl hover:shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)] hover:scale-110 transition duration-300 ease-in items-center border-gray-700 ">
                <h1 className="font-bold text-black flex justify-center items-center" style={{fontFamily:'"Raleway", sans-serif'}}> Your Cart</h1>
                <p className="flex justify-center items-center text-green-500 font-semibold"  style={{fontFamily:'"Raleway", sans-serif'}}>Summary</p>
                <p>

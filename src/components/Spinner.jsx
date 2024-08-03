@@ -5,7 +5,7 @@ import './Spinner.css'
 function Spinner() {
   return (
     <div>
-        <div className='spinner  justify-center'></div>
+        <div className='spinner '></div>
       
     </div>
   )

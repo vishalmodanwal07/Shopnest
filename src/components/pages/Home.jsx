@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Products from "../Products";
 import Spinner from "../Spinner";
 import { AiFillSmile } from "react-icons/ai";
+import Contactus from "../Contactus";
 
 function Home() {
  
@@ -37,7 +38,7 @@ function Home() {
           <AiFillSmile className='text-yellow-300 animate-bounce hover:text-black size-8 '/>
          </div>
          </div>
-           <div className=" bg-white  dark:bg-gray-800 text-black dark:text-white">
+           <div className=" flex justify-center items-center bg-white  dark:bg-gray-800 text-black dark:text-white">
            {
              loading? <Spinner/>:
              posts.length > 0 ? 
@@ -48,11 +49,12 @@ function Home() {
                 )) 
             }
               </div> ):
-            ( <div className="flex justify-center items-center  m-20 h-40 w-80 border-collapse border-gray-500 rounded-xl bg-white dark:bg-gray-800 text-black dark:text-white p-4">
-             <p className="flex justify-center items-center bg-white dark:bg-gray-800 text-black dark:text-white p-4">No Data Found</p>
+            ( <div className="flex justify-center  bg-gray-500 items-center  m-20 h-40 w-80 border-collapse border-gray-500 rounded-xl  text-black dark:text-white p-4">
+             <p className="flex justify-center items-center font-semibold" style={{ fontFamily: '"Raleway", sans-serif' }}>No Data Found , please check your internet connection !</p>
               </div>)
             }
            </div>
+          
     </div>
   );
 }

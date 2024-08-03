@@ -4,17 +4,19 @@
 import { MdDeleteSweep } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { remove } from "./redux/Slices/CartSlice";
+import { toast } from "react-toastify";
 
 
 
 const CartItem = ({item , itemIndex}) => {
   const dispatch =useDispatch();
   const removeFromCart =()=>{
-    dispatch(remove(item.id));
+    dispatch(remove(item.id))
+    toast.error("item is removed from Cart");
   }
  
   return (
-    <div className=" flex  flex-col my-8 overflow-hidden  border-2 border-collapse rounded-xl bg-gray-100 w-[70%] hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]  hover:scale-110 transition duration-300 ease-in items-center border-gray-700">
+    <div className=" flex  flex-col my-8 overflow-hidden  border-2 border-collapse rounded-xl bg-gray-100 w-[50%] hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]  hover:scale-110 transition duration-300 ease-in items-center border-gray-700">
         <div>
           <div className="flex">
           <div className=" w-[40%] m-5 p-3 border-1   rounded-xl hover:scale-110 transition duration-300 ease-in">
@@ -39,3 +41,5 @@ const CartItem = ({item , itemIndex}) => {
 }
 
 export default CartItem;
+
+

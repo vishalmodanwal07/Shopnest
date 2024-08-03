@@ -14,6 +14,9 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearUser } from "./redux/Slices/authSlice";
 import { signOut } from "firebase/auth";
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { toast } from "react-toastify";
+
 
 
 
@@ -24,6 +27,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
   
   const [dropdownOpen, setDropdownOpen] = useState(false);
+ 
 
    const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -39,6 +43,7 @@ function Navbar() {
    const handleSignOut = () => {
     signOut(auth).then(() => {
       dispatch(clearUser());   
+      toast.success("log out"); 
     }).catch((error) => {
       console.error("Sign-out error", error);
     });
@@ -51,10 +56,10 @@ function Navbar() {
           <NavLink to="/">
           <div className="flex items-center">
           <div className='flex font-semibold items-center'>
-          <h1 className='text-4xl ml-5 flex hover:text-black shadow-sm  bg-white dark:bg-gray-800 text-black dark:text-white p- m-4' style={{ fontFamily: '"Pacifico" , cursive' }}>SHOPNEST</h1>
+          <h1 className='text-4xl ml-5 flex hover:text-black shadow-sm  bg-white dark:bg-gray-800 text-black dark:text-white m-4 ' style={{ fontFamily: '"Pacifico" , cursive' }}>SHOPNEST</h1>
           <RxMagicWand className='text-yellow-400 size-6 animate-bounce' />
           </div>
-          <div className="sm:block lg:hideen md:hidden xl:hidden p-2 ml-2 font-sm text-sm">
+          <div className="sm:block lg:hideen md:hidden xl:hidden p-2 ml-3 font-sm text-sm">
               <ThemeToggle/>
               </div>
           </div>
@@ -68,15 +73,7 @@ function Navbar() {
           </NavLink>
         </div>
 
-        <div className='hidden md:flex  gap-2 font-sans'>
-          <div className="flex">
-            <input
-              className="flex h-10 p-5 mt-2 shadow-md bg-blue-100 rounded-md border w-60 border-gray-300 mb-1 px-3 py-3 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-              type="text"
-              placeholder="Search For Products....">
-            </input>
-          </div>
-        </div>
+       
 
         <div className='hidden md:flex items-center'>
           <NavLink to="/"
@@ -119,18 +116,49 @@ function Navbar() {
           </NavLink>
           {user ? (
           <div>
-            <span>{ user.email}</span>
-            <button onClick={handleSignOut}>Sign Out</button>
+            <span className="text-rose-500"style={{ fontFamily: '"Raleway", sans-serif' }}>{ user.email}</span>
+            <button
+               onClick={handleSignOut}
+              type="button"
+              className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+              style={{fontFamily:'"Raleway", sans-serif'}} >SIGN OUT </button>
+            {/* <button onClick={handleSignOut}>Sign Out</button> */}
           </div>
         ) : (
           <div className="dropdown">
-            <button onClick={toggleDropdown}>Account</button>
+            <button onClick={toggleDropdown} className="font-bold text-lg" style={{ fontFamily: '"Raleway", sans-serif' }}>User</button>
             {dropdownOpen && (
-              <div className="dropdown-menu">
-                <Link to="/signin" onClick={() => setDropdownOpen(false)}>Sign In</Link>
-                <Link to="/signup" onClick={() => setDropdownOpen(false)}>Sign Up</Link>
+              
+              <Menu as="div" className="relative inline-block text-left">
+              <div>
+                <MenuButton className="inline-flex  w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-black hover:text-white">
+                  Account
+    
+                </MenuButton>
               </div>
-            )}
+        
+              <MenuItems
+                transition
+                className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+              >
+                <div className="py-1">
+                  <MenuItem>
+                   <Link to="/signin"  className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900" onClick={() => setDropdownOpen(false)}>Sign In</Link>
+                  </MenuItem>
+                  <MenuItem>
+                  <Link to="/signup" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900" onClick={() => setDropdownOpen(false)}>Sign Up</Link>
+                  </MenuItem>
+                </div>  
+              </MenuItems>
+            </Menu>)}
+                  
+
+
+              {/* // <div className="dropdown-menu">
+              //   <Link to="/signin" onClick={() => setDropdownOpen(false)}>Sign In</Link>
+              //   <Link to="/signup" onClick={() => setDropdownOpen(false)}>Sign Up</Link>
+              // </div> */}
+            
           </div>
         )}
 
@@ -185,18 +213,52 @@ function Navbar() {
                 <span className="text-white border-50% bg-red-600 text-xs h-3 w-3 flex justify-center items-center m-2 p-2 animate-bounce rounded-full ">{like.length}</span>
               }
             </NavLink>
-            <input
-              className="flex h-10 p-5 mt-2 shadow-md bg-blue-100 rounded-md border w-full border-gray-300 mb-1 px-3 py-3 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-              type="text"
-              placeholder="Search For Products....">
-            </input>
+         
            
           <NavLink to="/Signup">
-          <button
+          {user ? (
+          <div className="pl-2 ml-2">
+            <div className="text-rose-500 mt-2"style={{ fontFamily: '"Raleway", sans-serif' }}>{ user.email}</div>
+            <button 
+             onClick={handleSignOut}
+              type="button"
+              className="rounded-md bg-black px-3 py-2 ml-5 mt-4 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+              style={{fontFamily:'"Raleway", sans-serif'}} >SIGN OUT </button>
+          </div>
+        ) : (
+          <div className="dropdown">
+            <Menu as="div" className="relative inline-block text-centre">
+              <div>
+                <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                  Account
+    
+                </MenuButton>
+              </div>
+        
+              <MenuItems
+                transition
+                className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+              >
+                <div className="py-1">
+                  <MenuItem>
+                   <Link to="/signin"  className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900" onClick={() => setDropdownOpen(false)}>Sign In</Link>
+                  </MenuItem>
+                  <MenuItem>
+                  <Link to="/signup" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900" onClick={() => setDropdownOpen(false)}>Sign Up</Link>
+                  </MenuItem>
+                </div>  
+              </MenuItems>
+            </Menu>
+            
+          </div>
+        )}
+
+
+          {/* <button
            type="button"
            className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
            style={{fontFamily:'"Raleway", sans-serif'}} > Signup/Login
-          </button>
+          </button> */}
           </NavLink>
            
           </div>
