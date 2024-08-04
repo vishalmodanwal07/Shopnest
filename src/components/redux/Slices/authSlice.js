@@ -1,4 +1,4 @@
-// authSlice.js
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const authSlice = createSlice({
@@ -19,3 +19,11 @@ const authSlice = createSlice({
 export const { setUser, clearUser } = authSlice.actions;
 
 export default authSlice.reducer;
+
+
+
+
+
+
+//firebase implementation----->
+

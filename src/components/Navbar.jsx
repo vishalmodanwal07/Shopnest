@@ -34,20 +34,19 @@ function Navbar() {
   };
 
 
-  //authentication-->
-   const auth =getAuth(app);
-   const user =useSelector((state)=>state.auth.user);
-   const dispatch = useDispatch();
-   
+  const auth =getAuth(app);
+  const user =useSelector((state)=>state.auth.user);
+  const dispatch = useDispatch();
+  
 
-   const handleSignOut = () => {
-    signOut(auth).then(() => {
-      dispatch(clearUser());   
-      toast.success("log out"); 
-    }).catch((error) => {
-      console.error("Sign-out error", error);
-    });
-  };
+  const handleSignOut = () => {
+   signOut(auth).then(() => {
+     dispatch(clearUser());   
+     toast.success("log out"); 
+   }).catch((error) => {
+     console.error("Sign-out error", error);
+   });
+ };
 
   return (
     <>
