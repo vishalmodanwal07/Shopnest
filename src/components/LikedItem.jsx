@@ -44,30 +44,39 @@
 import React from 'react';
 import { MdDeleteSweep } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { lremove } from "./redux/Slices/LikedSlice"; // Correct import statement for lremove
+import { lremove } from './redux/Slices/LikedSlice';// Correct import statement for lremove
+import { toast } from 'react-toastify';
 
-const LikedItem = ({ item }) => {
+const LikedItem = ({ item  , itemIndex}) => {
+ 
   const dispatch = useDispatch();
-
   const removeFromLike = () => {
     dispatch(lremove(item.id));
-  };
+    toast("Item removed from Liked");
+};
+ 
 
   return (
-    <div className="liked-item-container p-4 border border-gray-200 rounded-md flex items-center justify-between mb-4">
-      <div className="item-details flex items-center">
-        <div className="item-image mr-4">
-          <img src={item.image} alt={item.title} className="w-20 h-20 object-cover rounded-md" />
-        </div>
-        <div className="item-info">
-          <h1 className="font-bold text-lg">{item.title}</h1>
-          <p className="text-gray-600">{item.description}</p>
-        </div>
+    <div className=" items-center justify-center p-4 border-b-4 w-[40%] border-gray-300 rounded-lg  mb-4">
+      <div>
+          <div>
+          <h1 className="font-bold text-lg flex items-center justify-center ">{item.title}</h1>
+          <div className="flex justify-center items-center p-3 ">
+          <img src={item.image} alt={item.title} className="h-[180px] w-fit ml-4 object-cover rounded-md" />
+          </div>
+          </div>
+        
+        
+         <div>
+          <p  className=" flex items-center justify-center ">{item.description}</p>
+         </div>
+       
+       
       </div>
-      <div className="item-actions flex items-center">
+      <div className="flex justify-between items-center mx-10 py-3">
         <div className="item-price text-lg font-semibold mr-4">${item.price}</div>
-        <div onClick={removeFromLike} className="remove-icon cursor-pointer">
-          <MdDeleteSweep onClick={removeFromLike} className="text-2xl text-red-500 hover:text-red-700 transition duration-200" />
+        <div  onClick={ removeFromLike} className="remove-icon cursor-pointer">
+          <MdDeleteSweep  className="text-2xl text-red-500 hover:text-red-700 transition duration-200" />
         </div>
       </div>
     </div>
