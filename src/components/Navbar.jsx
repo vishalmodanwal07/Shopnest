@@ -55,7 +55,7 @@ function Navbar() {
           <NavLink to="/">
           <div className="flex items-center">
           <div className='flex font-semibold items-center'>
-          <h1 className='text-4xl ml-5 flex hover:text-black shadow-sm  bg-white dark:bg-gray-800 text-black dark:text-white m-4 ' style={{ fontFamily: '"Pacifico" , cursive' }}>SHOPNEST</h1>
+          <h1 className='text-4xl ml-5 flex hover:text-black  bg-white dark:bg-gray-800 text-black dark:text-white m-4 ' style={{ fontFamily: '"Pacifico" , cursive' }}>SHOPNEST</h1>
           <RxMagicWand className='text-yellow-400 size-6 animate-bounce' />
           </div>
           <div className="sm:block lg:hideen md:hidden xl:hidden p-2 ml-3 font-sm text-sm">

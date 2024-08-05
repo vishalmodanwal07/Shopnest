@@ -30,7 +30,7 @@ function Contactus() {
     };
   return (
     <div>
-  <footer className="footer  bg-gray-900 text-white p-10 flex flex-col items-center" style={{ fontFamily: '"Raleway", sans-serif' }}>
+  <footer className="footer  bg-gray-900 text-white p-10 flex flex-col items-center " style={{ fontFamily: '"Raleway", sans-serif' }}>
       <div className="footer-container flex flex-wrap justify-between w-full max-w-6xl">
         <div className="footer-section mb-6">
           <h4 className='flex items-center font-bold text-3xl mb-4'>Contact Us</h4>
