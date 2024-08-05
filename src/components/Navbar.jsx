@@ -7,7 +7,6 @@ import { IoHeartSharp } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
-import { ToggleButton } from "@mui/material";
 import { getAuth } from "firebase/auth";
 import { app } from "./firebase";
 import { Link } from "react-router-dom";
@@ -17,22 +16,15 @@ import { signOut } from "firebase/auth";
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { toast } from "react-toastify";
 
-
-
-
-
 function Navbar() {
   const { cart } = useSelector((state) => state);
   const { like } = useSelector((state) => state);
   const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
-  
   const [dropdownOpen, setDropdownOpen] = useState(false);
  
-
-   const toggleDropdown = () => {
+  const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
-
 
   const auth =getAuth(app);
   const user =useSelector((state)=>state.auth.user);
@@ -52,7 +44,7 @@ function Navbar() {
     <>
       <div className="h-16 flex fixed justify-between shadow-lg mx-auto items-center w-full z-10 bg-white dark:bg-gray-800 text-black dark:text-white p-4">
         <div className="flex justify-center items-center text-5xl font-semibold">
-          <NavLink to="/">
+         <NavLink to="/">
           <div className="flex items-center">
           <div className='flex font-semibold items-center'>
           <h1 className='text-4xl ml-5 flex hover:text-black  bg-white dark:bg-gray-800 text-black dark:text-white m-4 ' style={{ fontFamily: '"Pacifico" , cursive' }}>SHOPNEST</h1>
@@ -60,19 +52,10 @@ function Navbar() {
           </div>
           <div className="sm:block lg:hideen md:hidden xl:hidden p-2 ml-3 font-sm text-sm">
               <ThemeToggle/>
-              </div>
           </div>
-            {/* <div className='flex font-semibold items-center'>
-              <h1 className='text-4xl ml-5 flex hover:text-black shadow-sm  bg-white dark:bg-gray-800 text-black dark:text-white p- m-4' style={{ fontFamily: '"Pacifico" , cursive' }}>SHOPNEST</h1>
-              <RxMagicWand className='text-yellow-400 size-6 animate-bounce' />
-              <div className="sm:block lg:hideen md:hidden xl:hidden p-2 font-sm">
-              <ThemeToggle/>
-              </div>
-            </div> */}
-          </NavLink>
+          </div>
+        </NavLink>
         </div>
-
-       
 
         <div className='hidden md:flex items-center'>
           <NavLink to="/"
@@ -105,10 +88,10 @@ function Navbar() {
               `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-blue-600 border-b-2 border-gray-400" : "text-white-300"}`
             }>
             <div className='flex items-center relative justify-center hover:text-blue-600'>
-              <IoHeartSharp className='text-red-600 size-7' />
+              <IoHeartSharp className='text-red-600 size-8' />
               {
                 like.length > 0 &&
-                <span className="text-white border-50% bg-red-600 text-xs h-3 w-3 flex justify-center items-center m-2 p-2 animate-bounce rounded-full">{like.length}</span>
+                <span className="text-white border-50% bg-red-600 text-xs h-3 w-3 flex justify-center items-center  p-2 animate-bounce rounded-full">{like.length}</span>
               }
               <p className='text-lg font-bold' style={{ fontFamily: '"Raleway", sans-serif' }}>Favourites</p>
             </div>
@@ -121,62 +104,34 @@ function Navbar() {
               type="button"
               className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
               style={{fontFamily:'"Raleway", sans-serif'}} >SIGN OUT </button>
-            {/* <button onClick={handleSignOut}>Sign Out</button> */}
-          </div>
-        ) : (
+          </div>)
+          : (
           <div className="dropdown">
             <button onClick={toggleDropdown} className="font-bold text-lg" style={{ fontFamily: '"Raleway", sans-serif' }}>User</button>
             {dropdownOpen && (
-              
-              <Menu as="div" className="relative inline-block text-left">
-              <div>
-                <MenuButton className="inline-flex  w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-black hover:text-white">
-                  Account
-    
-                </MenuButton>
-              </div>
-        
-              <MenuItems
-                transition
-                className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-              >
-                <div className="py-1">
+               <Menu as="div" className="relative inline-block text-left">
+                 <div>
+                 <MenuButton className="inline-flex  w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-black hover:text-white">
+                  Account</MenuButton>
+                 </div>
+                 <MenuItems
+                 transition
+                 className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">
+                 <div className="py-1">
                   <MenuItem>
                    <Link to="/signin"  className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900" onClick={() => setDropdownOpen(false)}>Sign In</Link>
                   </MenuItem>
                   <MenuItem>
                   <Link to="/signup" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900" onClick={() => setDropdownOpen(false)}>Sign Up</Link>
                   </MenuItem>
-                </div>  
+                 </div>  
               </MenuItems>
             </Menu>)}
-                  
-
-
-              {/* // <div className="dropdown-menu">
-              //   <Link to="/signin" onClick={() => setDropdownOpen(false)}>Sign In</Link>
-              //   <Link to="/signup" onClick={() => setDropdownOpen(false)}>Sign Up</Link>
-              // </div> */}
-            
-          </div>
+        </div>
         )}
 
 
-
-
-
-
-
-
-
-          {/* <NavLink to="/Signup">
-          <button
-           type="button"
-           className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
-           style={{fontFamily:'"Raleway", sans-serif'}} > Signup/Login
-          </button>
-          </NavLink> */}
-         <ThemeToggle/>
+        <ThemeToggle/>
         </div>
 
         <div className="md:block  lg:hidden flex items-center  bg-white dark:bg-gray-800 text-black dark:text-white">
@@ -253,11 +208,7 @@ function Navbar() {
         )}
 
 
-          {/* <button
-           type="button"
-           className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
-           style={{fontFamily:'"Raleway", sans-serif'}} > Signup/Login
-          </button> */}
+         
           </NavLink>
            
           </div>
