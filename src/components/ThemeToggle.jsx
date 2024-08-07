@@ -13,9 +13,6 @@ function ThemeToggle() {
   };
 
   return (
-    // <button onClick={handleToggle} className="p-2 rounded bg-gray-800 text-white">
-    //   {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
-    // </button>
   <div>
     <div>
     <Switch {...label}  onClick={handleToggle} className="p-2 rounded text-white" />

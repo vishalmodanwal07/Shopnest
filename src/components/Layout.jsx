@@ -4,7 +4,6 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { Contact } from 'lucide-react';
 import Contactus from './Contactus';
 
 function Layout() {

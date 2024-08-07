@@ -9,9 +9,6 @@ import { toast } from 'react-toastify';
 import { db } from './firebase';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 
-
-
-
 function Signup() {
     const [email ,setEmail]=useState("");
     const [password , setPassword]=useState("");
@@ -47,13 +44,9 @@ function Signup() {
        <div className="flex mt-5 text-5xl items-center justify-center bg-white dark:bg-gray-800 text-black dark:text-white p-4">
           <h1 className="text-3xl  font-bold pl-10 bg-white dark:bg-gray-800 text-black dark:text-white p-4 "
          style={{fontFamily:'"Shadows Into Light", cursive'}}> Sign-up</h1>
-         
-          <AiFillSmile className='text-yellow-300 animate-bounce hover:text-black size-8 '/>
+         <AiFillSmile className='text-yellow-300 animate-bounce hover:text-black size-8 '/>
          </div>
        </div>
-
-
-
        <div className="flex items-center justify-center px-4  sm:px-6 sm:py-16 lg:px-8 lg:py-10  bg-white dark:bg-gray-800 text-black dark:text-white" style={{ fontFamily: '"Raleway", sans-serif' }}>
         <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md  bg-white dark:bg-gray-800 text-black dark:text-white" style={{ fontFamily: '"Raleway", sans-serif' }}>
           <div className="mb-2 flex justify-center  bg-white dark:bg-gray-800 text-black dark:text-white" style={{ fontFamily: '"Raleway", sans-serif' }}>
@@ -69,13 +62,6 @@ function Signup() {
             >Sign In</span>
            
           </NavLink>
-            {/* <a
-              href="#"
-              title=""
-              className="font-medium text-black transition-all duration-200 hover:underline  bg-white dark:bg-gray-800 text-black dark:text-blue-700"style={{ fontFamily: '"Raleway", sans-serif' }}
-            >
-              Sign In
-            </a> */}
           </p>
           <form action="#" method="POST" className="mt-8">
             <div className="space-y-5">
@@ -141,17 +127,10 @@ function Signup() {
                 </button>
               </div>
             </div>
-          </form>
-        
+          </form> 
         </div>
       </div>
-    
-
-      
-
-
-
-    </div>
+   </div>
   )
 }
 

@@ -14,7 +14,6 @@ import {toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const auth = getAuth(app);
-
 const AppWrapper = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

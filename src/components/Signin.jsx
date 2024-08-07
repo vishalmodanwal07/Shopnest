@@ -43,14 +43,6 @@ function Signin() {
              >Sign Up</span>
             
            </NavLink>
-
-            {/* <a
-              href="#"
-              title=""
-              className="font-semibold text-black transition-all duration-200 hover:underline"
-            >
-              Create a free account
-            </a> */}
           </p>
           <form action="#" method="POST" className="mt-8  bg-white dark:bg-gray-800 text-black dark:text-white " style={{ fontFamily: '"Raleway", sans-serif' }}>
             <div className="space-y-5  bg-white dark:bg-gray-800 text-black dark:text-white ">
@@ -92,7 +84,6 @@ function Signin() {
               <div>
                 <button
                   onClick={signinUser}
-                  
                   type="button"
                   className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80" style={{ fontFamily: '"Raleway", sans-serif' }}
                 >
@@ -101,14 +92,9 @@ function Signin() {
               </div>
             </div>
           </form>
-          
         </div>
       </div>
-    
-  
-
-
-    </div>
+  </div>
   )
 }
 
