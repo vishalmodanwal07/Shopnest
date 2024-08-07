@@ -25,7 +25,7 @@ function Favourite() {
             
               
               {
-                like.map((item,post, index)=>{
+                like.map((item, index)=>{
                   return <LikedItem key={item.id} item={item} itemIndex={index}  />
                 })
               }

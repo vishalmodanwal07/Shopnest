@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from './redux/Slices/CartSlice'; 
 import { ladd , lremove } from "./redux/Slices/LikedSlice";
 import { IoHeartSharp } from "react-icons/io5";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 

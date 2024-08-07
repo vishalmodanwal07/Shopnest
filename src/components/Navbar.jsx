@@ -98,7 +98,7 @@ function Navbar() {
           </NavLink>
           {user ? (
           <div>
-            <span className="text-rose-500"style={{ fontFamily: '"Raleway", sans-serif' }}>{ user.email}</span>
+            <span className="text-rose-500 "style={{ fontFamily: '"Raleway", sans-serif' }}>{ user.email}</span>
             <button
                onClick={handleSignOut}
               type="button"

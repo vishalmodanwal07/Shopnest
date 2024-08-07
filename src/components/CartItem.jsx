@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 
 
-const CartItem = ({item , post ,itemIndex}) => {
+const CartItem = ({item}) => {
   const dispatch =useDispatch();
   const removeFromCart =()=>{
     dispatch(remove(item.id))

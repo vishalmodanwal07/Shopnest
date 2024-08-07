@@ -48,7 +48,7 @@ import { lremove } from './redux/Slices/LikedSlice';// Correct import statement 
 import { toast } from 'react-toastify';
 
 
-const LikedItem = ({ item  ,post, itemIndex}) => {
+const LikedItem = ({ item}) => {
   const {cart} = useSelector((state) => state);
  
   const dispatch = useDispatch();

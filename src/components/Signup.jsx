@@ -6,6 +6,8 @@ import { getAuth , createUserWithEmailAndPassword } from 'firebase/auth';
 import {app} from './firebase'
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { db } from './firebase';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
 
 
 
@@ -13,9 +15,31 @@ import { toast } from 'react-toastify';
 function Signup() {
     const [email ,setEmail]=useState("");
     const [password , setPassword]=useState("");
+    const [name , setName]=useState("");
     const auth = getAuth(app);
-    const createUser =()=>{createUserWithEmailAndPassword(auth , email ,password);
-    toast.success("Accont Create Successfully!");
+    const signup = async () => {
+      try {
+        if(name ==="" || email==="" || password==="" ){
+          toast.error("All Fields are required");
+        }
+      const users  =  await createUserWithEmailAndPassword(auth, email, password);
+        const user ={
+          name: name ,
+          uid: users.user.uid,
+          email :users.user.email,
+          time : Timestamp.now()
+        }
+        const userRef =collection(db , "users");
+        await addDoc(userRef , user);
+        setName("");
+        setEmail("");
+        setPassword("");
+        toast.success("signup successfully");
+        
+        // Handle successful registration
+      } catch (error) {
+        console.error(error);
+      }
     };
   return (
     <div>
@@ -56,6 +80,23 @@ function Signup() {
           <form action="#" method="POST" className="mt-8">
             <div className="space-y-5">
               <div>
+                <label htmlFor="name" className="text-base font-medium text-gray-900  bg-white dark:bg-gray-800 text-black dark:text-white" style={{ fontFamily: '"Raleway", sans-serif' }}>
+                  {' '}
+                  Name{' '}
+                </label>
+                <div className="mt-2  bg-white dark:bg-gray-800 text-black dark:text-white" style={{ fontFamily: '"Raleway", sans-serif' }}>
+                  <input
+                    onChange={(e)=>setName(e.target.value)}
+                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="text"
+                    value={name}
+                    placeholder="Name"
+                    id="name"
+                  ></input>
+                </div>
+                
+              </div>
+              <div>
                 <label htmlFor="email" className="text-base font-medium text-gray-900  bg-white dark:bg-gray-800 text-black dark:text-white" style={{ fontFamily: '"Raleway", sans-serif' }}>
                   {' '}
                   Email address{' '}
@@ -70,6 +111,7 @@ function Signup() {
                     id="email"
                   ></input>
                 </div>
+                
               </div>
               <div>
                 <div className="flex items-center justify-between  bg-white dark:bg-gray-800 text-black dark:text-white" style={{ fontFamily: '"Raleway", sans-serif' }}>
@@ -91,7 +133,7 @@ function Signup() {
               </div>
               <div>
                 <button
-                  onClick={createUser}
+                  onClick={signup}
                   type="button"
                   className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80" style={{ fontFamily: '"Raleway", sans-serif' }}
                 >
