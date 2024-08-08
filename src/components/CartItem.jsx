@@ -46,10 +46,10 @@ const CartItem = ({item}) => {
   <div className="flex flex-col md:flex-row items-center">
    <img src={item.image}  alt={item.title} className="h-[180px] w-fit ml-4 object-cover rounded-md hover:scale-110 transition duration-300 ease-in" />
     <div className="flex flex-col w-full md:w-1/2 bg-white dark:bg-gray-800 text-black dark:text-white p-4" style={{ fontFamily: '"Raleway", sans-serif' }}>
-      <h1 className="text-gray-700 font-bold text-lg mb-2">{item.title}</h1>
-      <p className="text-gray-600 text-sm mb-4">{item.description.split(" ").slice(0, 20).join(" ") + "..."}</p>
-      <div className="flex justify-between items-center">
-        <div className="font-semibold text-green-500 text-lg">${item.price}</div>
+      <h1 className="text-gray-700 font-bold text-lg mb-2  bg-white dark:bg-gray-800 text-black dark:text-white">{item.title}</h1>
+      <p className="text-gray-600 text-sm mb-4  bg-white dark:bg-gray-800 text-black dark:text-white">{item.description.split(" ").slice(0, 20).join(" ") + "..."}</p>
+      <div className="flex justify-between items-center  bg-white dark:bg-gray-800 text-black dark:text-white">
+        <div className="font-semibold text-green-500 text-lg  bg-white dark:bg-gray-800 text-black dark:text-white">${item.price}</div>
         <div onClick={removeFromCart} className="p-2 cursor-pointer">
           <MdDeleteSweep className="text-xl text-red-400 hover:text-red-600" />
         </div>
