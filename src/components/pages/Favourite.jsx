@@ -32,7 +32,7 @@ function Favourite() {
           <p className="flex justify-center items-center font-semibold" style={{ fontFamily: '"Raleway", sans-serif' }}>No Liked Products. Keep Explore Home Page.</p>
          </div>
          
-         <div className="flex items-center justify-center "> <Link to={"/"} >
+         <div className="flex items-center justify-center ml-10"> <Link to={"/"} >
           <button
            type="button"
            className="rounded-md bg-black px-3 py-2 m-5 text-sm font-semibold text-white shadow-sm hover:bg-green-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
