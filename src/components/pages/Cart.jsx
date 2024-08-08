@@ -20,10 +20,10 @@ function Cart() {
           <AiFillSmile className='text-yellow-300 animate-bounce hover:text-black size-8 '/>
          </div>
        </div>
-       <div className=" flex justify-around mx-10 items-center max-w-8xl bg-white  dark:bg-gray-800 text-black dark:text-white">
+       <div className=" flex justify-around mx-10 items-center max-w-8xl  bg-white  dark:bg-gray-800 text-black dark:text-white">
         {
           cart.length > 0 ?
-          (<div className="flex px-25  max-w-6xl mx-auto space-y-10 space-x-10  min-h-[30%]">
+          (<div className="flex px-25  max-w-6xl min-w-5xl mx-auto space-y-10 space-x-10  min-h-[30%]">
             <div className=" ">
               {
                 cart.map((item, index)=>{
@@ -51,7 +51,7 @@ function Cart() {
             </div>
    </div>):
    ( <div>
-                     <div className="flex justify-center  bg-gray-300 items-center  max-w-6xl mx-auto space-y-10 space-x-10  min-h-[30%]  h-40 w-80 border-collapse shadow-[0_15px_40px_rgba(8,_112,_184,_0.7)] border-gray-500 rounded-xl  text-black dark:text-white p-4">
+                     <div className="flex justify-center ml-10 bg-gray-300 items-center  max-w-6xl mx-auto space-y-10 space-x-10  min-h-[30%]  h-40 w-80 border-collapse shadow-[0_15px_40px_rgba(8,_112,_184,_0.7)] border-gray-500 rounded-xl  text-black dark:text-white p-4">
                      <p className="flex justify-center items-center font-semibold" style={{ fontFamily: '"Raleway", sans-serif' }}>No Cart Item Added , please Add items To Cart</p>
                     </div>
                     <div className="flex items-center justify-center"> <Link to={"/"} >

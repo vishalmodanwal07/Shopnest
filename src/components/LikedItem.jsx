@@ -24,8 +24,8 @@ const LikedItem = ({ item }) => {
          <div>
           <p className=" flex items-center justify-center ">{item.description.split(" ").slice(0, 20).join(" ") + "..."}</p>
         </div>
-        <div className="flex justify-between items-center mx-10 py-3">
-          <div className="item-price text-lg font-semibold mr-4 text-green-500">${item.price}</div>
+        <div className="flex justify-between px-3 mx-5 gap-10 py-3">
+          <div className="item-price text-lg font-semibold  text-green-500">${item.price}</div>
         <div onClick={removeFromLike} className="remove-icon cursor-pointer">
             <MdDeleteSweep className="text-4xl text-red-500 hover:text-red-700 transition duration-200 rounded-full bg-black p-1 " />
         </div>

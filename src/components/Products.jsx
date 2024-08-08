@@ -31,9 +31,9 @@ function Products({post}) {
     };
       return (
         <div className="flex flex-col h-55 w-25 overflow-hidden border-b-4 rounded-2xl hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] bg-white items-center  border-collapse border-2 border-gray-300 justify place-content-center hover:scale-110 transition duration-300 ease-in ">
-            <div className=" flex  justify-between  mx-3 ">
-                <p className="text-gray-700 font-bold p-2 mt-2" style={{fontFamily:'"Raleway", sans-serif'}}>{post.title.split(" ").slice(0,7).join(" ")+"..."}</p>
-                <div className="flex m-4">
+            <div className=" flex  justify-between items-center mx-3 ">
+                <p className="text-gray-700 font-bold p-2 mt-2 mr-3" style={{fontFamily:'"Raleway", sans-serif'}}>{post.title.split(" ").slice(0,4).join(" ")+"..."}</p>
+                <div className="flex ml-4 mt-2">
                     {  like.some((p) => p.id == post.id) ?
                     (< IoHeartSharp onClick={ removeFromLike} className=" p-2 m-2 text-red-500 size-10  bg-blue-700 rounded-full "/>):
                     (< IoHeartSharp onClick={addToLike} className=" p-2 m-2 text-red-100 size-10  bg-blue-700 rounded-full "/>)
