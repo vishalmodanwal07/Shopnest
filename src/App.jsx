@@ -23,9 +23,6 @@ const AppWrapper = () => {
       if (user) {
         dispatch(setUser(user));
         navigate('/'); 
-        toast.success("WELCOME! you are login");
-        
-        // Navigate to home page on successful login
       } else {
         dispatch(clearUser(null));
       }

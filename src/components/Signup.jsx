@@ -1,10 +1,10 @@
 import React from 'react'
 import { AiFillSmile } from "react-icons/ai";
-import { ArrowRight } from 'lucide-react'
+
 import { useState } from 'react'
-import { getAuth , createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth , createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import {app} from './firebase'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { db } from './firebase';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
@@ -14,12 +14,16 @@ function Signup() {
     const [password , setPassword]=useState("");
     const [name , setName]=useState("");
     const auth = getAuth(app);
+    
+    let navigate =useNavigate();
     const signup = async () => {
       try {
         if(name ==="" || email==="" || password==="" ){
           toast.error("All Fields are required");
         }
       const users  =  await createUserWithEmailAndPassword(auth, email, password);
+
+      navigate('/');
         const user ={
           name: name ,
           uid: users.user.uid,
@@ -123,7 +127,7 @@ function Signup() {
                   type="button"
                   className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80" style={{ fontFamily: '"Raleway", sans-serif' }}
                 >
-                  Create Account <ArrowRight className="ml-2" size={16} />
+                  Create Account 
                 </button>
               </div>
             </div>

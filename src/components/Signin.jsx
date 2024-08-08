@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { AiFillSmile } from "react-icons/ai";
-import { ArrowRight } from 'lucide-react';
+
 import { NavLink } from 'react-router-dom';
 import {getAuth , signInWithEmailAndPassword} from "firebase/auth";
 import {app} from './firebase'
@@ -87,7 +87,7 @@ function Signin() {
                   type="button"
                   className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80" style={{ fontFamily: '"Raleway", sans-serif' }}
                 >
-                  Sign In<ArrowRight className="ml-2" />
+                  Sign In
                 </button>
               </div>
             </div>
