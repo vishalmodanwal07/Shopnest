@@ -134,7 +134,7 @@ function Navbar() {
         <ThemeToggle/>
         </div>
 
-        <div className="md:block  lg:hidden flex items-center  bg-white dark:bg-gray-800 text-black dark:text-white">
+        <div className="md:block sm:block lg:hidden flex items-center  bg-white dark:bg-gray-800 text-black dark:text-white">
           <button onClick={() => setIsOpen(!isOpen)} className="text-gray-800 focus:outline-none">
             {isOpen ? (
               <svg className="w-6 h-6  bg-gray-500 dark:bg-gray-800 text-black dark:text-white rounded-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
