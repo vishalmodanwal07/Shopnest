@@ -30,7 +30,7 @@ function Signin() {
        </div>
 
       <div className="flex items-center justify-center px-4  sm:px-6 sm:py-16 lg:px-8 lg:py-10  bg-white dark:bg-gray-800 text-black dark:text-white" style={{ fontFamily: '"Raleway", sans-serif' }}>
-        <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md  bg-white dark:bg-gray-800 text-black dark:text-white p-4">
+        <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md  bg-white dark:bg-gray-800 text-black dark:text-white p-4 border-gray-300 rounded-lg p-8 mb-6 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] hover:scale-110 transition duration-300 ease-in ">
  
           <h2 className="text-center text-2xl font-bold leading-tight text-black  bg-white dark:bg-gray-800 text-black dark:text-white " style={{ fontFamily: '"Raleway", sans-serif' }}>
             Sign in to your account
