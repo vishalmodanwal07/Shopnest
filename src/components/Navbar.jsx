@@ -133,15 +133,15 @@ function Navbar() {
               </button>
             </div>
           ) : (
-            <Menu as="div" className="relative inline-block text-left">
+            <Menu as="div" className="relative inline-block text-left z-10">
               <MenuButton className="text-lg font-bold">User</MenuButton>
               <MenuItems className="absolute right-0 mt-2 w-56 origin-top-right bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
                 <div className="py-1">
                   <MenuItem>
-                    <Link to="/signin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign In</Link>
+                    <Link to="/signin" className="block px-6 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign In</Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link to="/signup" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign Up</Link>
+                    <Link to="/signup" className="block px-6 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Sign Up</Link>
                   </MenuItem>
                 </div>
               </MenuItems>
